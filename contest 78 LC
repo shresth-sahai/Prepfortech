@@ -1,0 +1,67 @@
+P1 ----https://leetcode.com/contest/biweekly-contest-78/problems/number-of-ways-to-split-array/
+
+class Solution {
+public:
+    
+    //store total sum of nums in right_sum and iterate over nums
+    //add nums[i] in left sum and subtract nums[i] from right sum
+    //when condition match increase valid_split by 1.
+    int waysToSplitArray(vector<int>& nums) 
+    {
+        int valid_split=0;
+        long long right_sum=0, left_sum=0;
+        
+        //store total sum of nums in right_sum
+        for(int i=0; i<nums.size(); i++) total_sum += nums[i];
+        
+        for(int i=0; i<nums.size()-1; i++)
+        {
+            left_sum += nums[i]; //add nums[i] in left sum 
+           total_sum -= nums[i]; // and subtract nums[i] from right sum
+            
+            //check whether left_sum is greater than or equal to right_sum
+            //and increase the valid_split by 1
+            if(left_sum >= total_sum) 
+                valid_split++; 
+        }
+        return valid_split;
+        
+    }
+};
+https://leetcode.com/contest/biweekly-contest-78/problems/find-the-k-beauty-of-a-number/
+
+class Solution {
+public:
+    int divisorSubstrings(int num, int k) {
+        string str = to_string(num);
+        int i = 0, j = 0, n = str.length();
+        int ind = 0;
+        
+        while(j < n)
+        {
+            if(j - i + 1 < k)
+            {
+			// increment j till we get the window size
+                ++j;
+            }
+            else if(j - i + 1 == k)
+            {
+			// on hiting the window size
+			// extract window string and convert to int
+			// check if it follows the given condition
+                string s = str.substr(i,k);                               ///for python string s = str.substr(i,i+k);  
+                int n = stoi(s);
+                if(n != 0 && num % n == 0 )
+                    ++ind;
+                
+				// shift the window by ++j;
+				// remove previous calculation by ++i
+                ++i;
+                ++j;
+            }
+                
+        }
+        
+        return ind;
+    }
+};

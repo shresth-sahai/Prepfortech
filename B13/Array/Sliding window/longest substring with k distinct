@@ -1,0 +1,38 @@
+https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
+
+int we=0;
+int ws=0;
+map<char,int> mp;
+for(we=0;we<n;we++)
+{
+char r=str[we];
+mp[r]++;
+
+while(mp.size()>k)
+{
+char l=str[ws];
+mp[l]--;
+if(mp[l]==0)
+mp.erase(l);l
+}
+ws++;
+}
+maxl=max(maxl,we-ws+1);
+}
+
+d={}
+        left = 0
+        maximum=-9999999
+        for i in range(len(s)):
+            if s[i] not in d:
+                d[s[i]]=1
+            else:
+                 d[s[i]]+=1
+            while len(d)>k:
+                d[s[left]]-=1
+                
+                if   d[s[left]]==0:
+                    d.pop(s[left])
+                left+=1
+            maximum= max(maximum,i-left+1)
+        return maximum
