@@ -1,0 +1,41 @@
+def StringChallenge(strParam):
+  left = 0
+  right=len(strParam)-1
+  pal=""
+  c=0
+  while left<=right:
+    if strParam[left]==strParam[right]:
+      left+=1
+      right-=1
+    else:
+      if strParam[right]==strParam[left+1]:
+        c+=1
+        pal+=strParam[left]
+        left+=1
+      elif strParam[right]==strParam[left+2]:
+        c+=2
+        pal+=strParam[left]+strParam[left+1]
+        left+=2
+      
+      elif strParam[left]==strParam[right-1]:
+        c+=1
+        pal+=strParam[right]
+        right-=1
+      elif strParam[left]==strParam[right-2]:
+        c+=2
+        pal+=strParam[right-1]+strParam[right]
+        right-=2
+      elif strParam[left+1]==strParam[right-1]:
+        c+=2
+        pal+=strParam[left]+strParam[right]
+        right-=1
+        left+=1
+      else:
+        print(pal)
+        return "not possible"
+    if c>2:
+      print(pal)
+      return "not possible"
+  if c==0:
+    return "palindrome"
+  return pal

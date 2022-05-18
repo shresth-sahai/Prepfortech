@@ -1,0 +1,11 @@
+WindowStart = 0 
+        windowsum=0
+        n=len(nums)
+        ans=float('inf')
+        for i in range(n):
+            windowsums+=nums[i]
+            while  windowsums>=SUM:
+                ans=min(ans,i+1-WindowStart)
+                windowsum-=nums[windowstart]
+                WindowStart+=1
+        return ans if ans<float('inf') else 0
