@@ -13,11 +13,11 @@ class Solution:
         for j in range(len(nums)):
             acc += nums[i]
 
-            if acc >= s:
-                while acc >= s:
-                    small_subarray = min(small_subarray, j - i + 1)
-                    acc -= nums[i]
-                    i += 1
+            while acc >= s:
+                small_subarray = min(small_subarray, j - i + 1)
+                acc -= nums[i]
+                i += 1
+
         if small_subarray == float("inf"):
             return 0
         else:
