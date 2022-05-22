@@ -1,0 +1,28 @@
+in totalwood(int t[],int mid)
+{
+	int total=0;
+	for(int i=0;i<n;i++)
+	{
+		if(t[i]>mid)
+		total+=t[i]-mid;
+	}
+	return total;
+	
+}
+int solve(int t[],int n,int k)
+{    sort(t)
+	int l=1;
+	int h=max(t[]);
+	while(l<=h)
+	{
+		if(totalwood(t,mid)==k){
+			return mid;
+		break;	
+		}
+	if(<) reduce left half
+	
+	else reduce right half
+		
+	}
+}
+https://www.spoj.com/problems/EKO/

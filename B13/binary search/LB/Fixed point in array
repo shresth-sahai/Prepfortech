@@ -1,0 +1,17 @@
+FIXED POINT(val==index)
+
+int l=0;
+int h=n-1;
+
+while(l<=h)
+{
+	int m=(l+h)/2;
+	if(nums[mid]==mid) 
+	{
+		ans=m;
+		break;
+	}
+		if(nums[mid]<mid) s=mid+1
+		else h=mid+1
+}
+return ans;
