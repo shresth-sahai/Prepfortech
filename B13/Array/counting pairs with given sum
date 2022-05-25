@@ -1,0 +1,8 @@
+def sol(arr,x):
+  count=0
+  d=defaultdict(int)
+  for i in range(len(arr)):
+    if x-arr[i] in d:
+        count+=d[x-arr[i]]
+    d[arr[i]]+=1
+  return(count)
