@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+     
+        
+        [221]
+        [21]
+        6-5=1
+        
+       
+            
+            return 2*unique elemts_sum - total sum;
+        
+        
+    }
+};
+
+soritng--- nlogn , 1
+map-- n , n
+xor- n,1
+set ---n,n
