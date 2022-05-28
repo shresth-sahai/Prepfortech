@@ -10,3 +10,20 @@ public:
 };
 
 
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {int c=0;
+        while(n>0)
+        {
+           n= (n & n-1);c++;
+        }
+        return c;
+    }
+};
+5 -----101
+4------100
+res====100
+n=     100. c=1
+ n-1-3-011
+res2  -000 c=2;
+n=000
