@@ -32,3 +32,28 @@ n&(n-1)-000       if(4)--- true
     & | !
 if( A==0 && b==1)
     
+class Solution {
+public:
+    bool isPowerOfFour(int n) {
+      
+        if(n<=0) return false;
+        if(n==1) return true;
+        //power of 2
+        if(n & n-1) return false;
+        
+    int c=0;
+        
+        while(   )
+        {
+            c++;
+            n>>=1;
+        }
+        
+        if(c & 1==0) return true; c%2==0
+        else return false;
+        
+   
+    }
+};
+4-100
+3-011
