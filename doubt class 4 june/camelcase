@@ -1,0 +1,16 @@
+def camel(s):
+    x=0
+    for x in range(0,n):
+        if x==0:
+            s.lower()
+            continue
+        if s[x-1]>=32 and s[x-1]<=47:
+            s[x].upper()
+            s.remove(x-1)
+            x-=1
+            
+            
+        else:
+            s[x].lower()
+            
+        return s
