@@ -14,3 +14,27 @@ def camel(s):
             s[x].lower()
             
         return s
+
+
+
+def CamelCase(strParam): 
+    strcopy=strparam[0].lower()
+  strPam=strParam.lower()
+  while not(ord('a') <= ord(strPam[0]) <= ord('z')):
+    strPam=strPam[1:]
+
+  newStr=""
+  for i in range(len(strPam)):
+    if ord('a') <= ord(strPam[i]) <= ord('z') and  not (ord('a') <= ord(strPam[i-1]) <= ord('z')):
+      newStr+=strPam[i].upper()
+    elif ord('a') <= ord(strPam[i]) <= ord('z'):
+      newStr+=strPam[i]
+  return strcopy+newStr
+
+# keep this function call here 
+print(CamelCase(input()))
+Bob-loves
+bob-loves
+
+
+
