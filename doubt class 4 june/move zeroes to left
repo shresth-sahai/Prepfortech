@@ -1,0 +1,33 @@
+
+1 0 2 0. w= 3 r =3
+1st ---r--3 
+[1 0 2 2]
+[0 0 1 2]
+[]
+
+def move(A):
+    if(len(A)<1):
+        return
+    n=len(A)
+    w=n-1
+    r=n-1
+    while(r>=0):
+        if A[r]!=0:
+            A[w]=A[r]
+            w-=1
+        
+        r=-1
+    
+    while(w>=0):
+        A[w]=0
+        w-=1
+        
+v=[1,10,20,0,59,63,0,88,0]
+print("orignal Array", v)
+
+move(v)
+print ("after ", v)
+            
+        
+        
+        
