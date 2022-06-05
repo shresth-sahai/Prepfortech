@@ -46,3 +46,19 @@ public:
         return -1;
     }
 };
+
+
+class Solution {
+public:
+    int findMiddleIndex(vector<int>& nums) {
+        int rsum=0,lsum=0;
+        for(int i=0;i<nums.size();i++) rsum+=nums[i];
+        
+        for(int i=0;i<nums.size();i++) 
+        {
+            if(lsum==rsum-lsum-nums[i]) return i;
+            lsum+=nums[i];
+        }
+        return -1;
+    }
+};
