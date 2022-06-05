@@ -1,0 +1,48 @@
+parellel sums
+def ParallelSums(arr):  arr = sorted(arr,reverse=True)
+  #print(arr)
+  sumOfList = sum (arr)
+  if sumOfList%2:
+    return -1
+  total = sumOfList/2
+  lst1 = []
+  lst2= []
+  for i in arr:
+    if total>= sum(lst1)+i:
+      lst1.append(i)
+      #print(lst1)
+    else:
+      lst2.append(i)
+      #print(lst2)
+  
+  # code goes here
+  if lst1[-1] < lst2[-1]:
+    op =  lst1[::-1]+lst2[::-1]
+  else:
+    op = lst2[::-1]+lst1[::-1]
+  return ",".join([str(i) for i in op])
+# keep this function call here 
+print(ParallelSums(input()))
+
+
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+          int n=nums.size();
+       
+        int rightsum=0;
+        for(int i=0;i<n;i++) rightsum+=nums[i];
+        
+        int leftsum=0;
+      
+        for(int i=0;i<n;i++)
+        {
+            rightsum-=nums[i];
+            if(leftsum==rightsum) {
+                return i;
+            } 
+                leftsum+=nums[i];
+        }
+        return -1;
+    }
+};
