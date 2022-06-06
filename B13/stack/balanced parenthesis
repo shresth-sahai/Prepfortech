@@ -1,0 +1,20 @@
+class Solution:
+    def solve(self, s):
+        ss=[]
+        if s == "":
+            return True
+        if s[0] == ")":
+            return False
+        for i in s:
+            if i=="(":
+                ss.append("(")
+            elif i==")":
+                if len(ss)==0:
+                    return False
+                else:
+                    ss.pop()
+        if len(ss)==0:
+            return True
+        return False   
+
+        
