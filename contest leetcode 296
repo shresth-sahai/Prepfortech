@@ -1,0 +1,29 @@
+class Solution:
+    def arrayChange(self, nums: List[int], operations: List[List[int]]) -> List[int]:
+        temp={}
+        for i in range(len(nums)):
+            temp[num[i]]=i
+        
+        for i in range(len(op)):
+            if op[i][0] not in temp:
+                temp[op[i][0]]=temp[op[i][1]]
+            nums[temp[op[i][0]]]=op[i][1]
+            temp[op[i][0]]=temp[op[i][1]]
+            return nums
+            
+                
+        
+        class Solution {
+public:
+    vector<int> arrayChange(vector<int>& A, vector<vector<int>>& op) {
+    unordered_map<int,int> store;
+        
+    for(int i=0;i<A.size();i++) store[A[i]]=i;
+        
+    for(auto i:op){
+        A[store[i[0]]]= i[1];           //replace value to its index
+        store[i[1]]= store[i[0]];       //update new value with its index
+    }
+    return A;
+}
+};
