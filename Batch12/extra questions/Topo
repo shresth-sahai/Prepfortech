@@ -1,0 +1,30 @@
+int main()
+{
+int n,m;
+cin>>n>>m;
+for(int i=0;i<n;i++)
+{\int u,v;
+cin>>u>>v;
+adj[u].push_back(v);
+indeg[v]++;
+}
+queue q;
+for(int i=0;i<n;i++)
+{if(indeg[i]==0)
+q.push(i);
+}
+while(!q.empty())
+{
+cnt++;
+int x=q.front();
+pq.pop();
+cout<<x;
+for(auto it:adj[x])
+{
+indeg[it]--;
+if(indeg[it]==0)
+q.push(it);
+}
+
+push zero indeg in q
+sub -1 degree of adjacent
