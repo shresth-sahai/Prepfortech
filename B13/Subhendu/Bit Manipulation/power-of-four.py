@@ -12,4 +12,4 @@ class Solution:
         if c0 % 2 == 0 and c1 == 1:
             return True
         else:
-            return False 
+            return False
