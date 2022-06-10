@@ -1,0 +1,23 @@
+ a b c 
+    info abt b i can check a and c
+
+    if we start from left to right
+     
+     we can make a track of how many a are follwing the condition
+
+     and similar right one
+
+     map
+     ---
+     store every val in the hashmap and count
+     map.get(b/2)
+
+
+TreeMap/ Ordered MAp/ Ordered Dict
+Find suffices----2*b
+
+add to  my ans
+
+
+
+
