@@ -1,0 +1,44 @@
+class Solution {
+public:
+     vector<vector<int>> adjList;
+    vector<int> visited;
+private:
+    void buildGraph(int n, vector<vector<int>>& edges) {
+        // vertices info: given (0 ... n-1)
+        // edges info: given (pairs of edges)
+        // Build adjcency list
+        adjList.assign(n, vector<int>(0));
+        for (auto edge : edges) {
+            adjList[edge[0]].push_back(edge[1]);
+            adjList[edge[1]].push_back(edge[0]);
+        }
+        
+        // initialize visted list to keep track of all vertices
+        visited.assign(n, -1);
+    }
+    
+    void dfs(int vertex) {
+        // mark vertex as visited
+        visited[vertex] = 1;
+        for (auto neighbor : adjList[vertex]) {
+            if (visited[neighbor] == -1) {
+                // new node: explore recursively
+                dfs(neighbor);
+            }
+        }
+    }
+    int countComponents(int n, vector<vector<int>>& edges) {
+        buildgraph(n,edges);
+        int cc=0;
+        for(int i=0;i<n;i++)
+        {
+            if(vis[i]==-1) 
+            {
+                cc++;
+                dfs(i);
+            }
+        }
+        return cc;
+        
+    }
+};
