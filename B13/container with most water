@@ -1,0 +1,14 @@
+
+
+i=0
+j=n-1
+while(i<j)
+    int width=j-i;
+    int height=min(heigh[i],height[j])
+    ans=width* height;
+    maxarea=max(maxarea,ans);
+check for i/j inc / dec
+i++;
+j--;
+
+https://leetcode.com/problems/container-with-most-water/
