@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+					
+public class Program
+{
+	public static bool NoisyPalindrome(string s)
+	{
+		bool ans = true;
+		var lis = new List<char>(){};
+		
+		for(int i=0;i<s.Length;i++)
+		{
+			if(s[i]>='a'& s[i]<='z')
+			{
+			lis.Add(s[i]);
+			}
+			
+		}
+		
+		int k =0; int j= lis.Count-1;
+		for(int p=0;p<lis.Count/2;p++)
+		{
+			if(lis[k]!=lis[j])
+			{ans = false;}
+			
+		}
+
+		return ans;
+	}
+	
+	
+	public static void Main()
+	{
+        Console.WriteLine(Program.NoisyPalindrome("a92bcbXa"));
+
+	}
+}
