@@ -1,0 +1,41 @@
+public class Solution {
+    public int[] NextGreaterElement(int[] nums1, int[] nums2) {
+        
+        int l = nums2.Length;
+        
+        int[] nge = new int[l];
+        
+        var st = new Stack<int>(){};
+        var dict = new Dictionary<int,int>(){};
+        
+        
+        for(int i=0;i<l;i++)
+        {
+            
+            while(st.Count!=0 && nums2[i]>nums2[st.Peek()])
+            {
+                dict.Add (nums2[st.Peek()],nums2[i] );
+                st.Pop();
+            }
+            
+            st.Push(i);
+        }
+        
+        var ans = new List<int>(){};
+        
+        for(int j=0;j<nums1.Length;j++)
+        {
+            if(dict.ContainsKey(nums1[j]))
+            {
+                ans.Add(dict[nums1[j]]);
+            }
+            
+            else{
+                ans.Add(-1);
+            }
+        }
+        
+        return ans.ToArray();
+        
+    }
+}
