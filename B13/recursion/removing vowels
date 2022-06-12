@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string removeVowels(string s) {
+        
+    }
+};
+
+vector<char> vowels={a ,e ,i ,o ,u};
+for(int i=0;i<n;i++)
+{
+    if(check for vowel)
+        str=str.replace(i,"")
+        i--;
+}
+return 
