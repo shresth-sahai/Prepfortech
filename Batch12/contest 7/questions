@@ -1,0 +1,94 @@
+def ArrayChallenge(strArr):
+  # code goes here
+  ans = ""
+  for idx in range(len(strArr[0])):
+    if strArr[0][idx] == "1" and strArr[1][idx] == "1":
+      ans = ans+"1"
+    else:
+      ans = ans + "0"
+  return ans
+
+
+
+# keep this function call here 
+print(ArrayChallenge(input()))
+
+
+def MathChallenge(num):
+  # code goes here
+
+  max_num = 0
+  num = str(num)
+  for idx in range(len(num)-1):
+    max_num = max(max_num,int(num[idx]+num[idx+1]))
+  return max_num
+# keep this function call here 
+print(MathChallenge(input()))
+
+
+https://tenderleo.gitbooks.io/leetcode-solutions-/content/GoogleMedium/280.html
+
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        int n=heights.size();
+        vector<int> psl(n),nsl(n);
+        
+        
+        stack<int> s;
+        
+        for(int i =n-1;i>=0;i--)
+        {
+            while(!s.empty() && heights[s.top()]>=heights) s.pop();
+        
+            nsl[i]=s.empty()?n:s.top();
+            s.push(i);
+                 
+        }
+        
+        while(!s.empty()) s.pop();
+        
+          
+        for(int i0;i<n;i++)
+        {
+            while(!s.empty() && heights[s.top()]>=height) s.pop();
+        
+            psl[i]=s.empty()?-1:s.top();
+            s.push(i);
+                 
+        }
+        int ans=INT_MIN;
+        
+        for(int i=0;i<n;i++) ans =max (ans,((nsl[i]-psl[i])*heights[i]);
+                                       
+                                       return ans;
+    }
+};
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        
+        if (root == null)  return false;
+        
+        if(root.left==null && root.right==null && root.val==targetSum) return true;
+        
+        return hasPathSum(root.left,targetSum-root.val) ||hasPathSum(root.right,targetSum-root.val);
+            
+        
+    }
+}
