@@ -1,0 +1,22 @@
+# class Tree:
+#     def __init__(self, val, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def solve(self, root):
+        self.d=[]
+        self.dfs(root,0)
+        return len(set(self.d))==1
+
+    def dfs(self,root,depth):
+        if root:
+            if not root.left and not root.right:
+                self.d.append(depth+1)
+            else:
+                if root.left:
+                    self.dfs(root.left,depth+1)
+                if root.right:
+                    self.dfs(root.right,depth+1)
+                    
+                    https://binarysearch.com/problems/Leaves-in-Same-Level
