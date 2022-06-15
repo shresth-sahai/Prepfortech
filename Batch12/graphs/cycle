@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
+        
+    }
+};
+
+if a node has cycle if wont be a safe node
+  // undirected graph cycles
+  
+  if(DFS(graph,0,vis,-1))
+      
+      
+      void(DFS) (graph,v,vis,int par))
+  {
+      vis[v]=true;
+      for(int neigh :graph.adjlist[v])
+      {
+          if !vis[neigh]
+          {
+              DFS(graph,neigh,vis,v) return true;
+          }
+      }
+      else if(neigh!=par)
+          return true;
+      
+     return false;
+  }
+      

@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        
+    }
+};
+
+for every ith index----
+    
+    1-->Tallest left
+    2-->Tallest Right
+    create two arrays
+    left[n]
+    right [n]
+int var=min(left,right)
+    water+=var-ar[i]
+    
+    
+    left[0]=ar[0]
+    for (int i=1;i<n;i++)
+        left[i]=max(left[i-1],arr[i])
+        
+        right[n-1]=arr[n-1]
+        for(int i=n-2;i>=0;i--)
+            right[i]=max(right[i+1],ar[i])
+            
+            for i in range(n-2,-1,-1)
+                
+                stack approach
+                NGE PSE
+                
+

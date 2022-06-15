@@ -1,0 +1,46 @@
+public class Solution {
+    public int[] NextGreaterElements(int[] nums) {
+        
+    int l = nums.Length;
+        
+    int[] arr = new int[2*l];
+    
+    arr = nums.Concat(nums).ToArray();
+        
+     int l1 = arr.Length;
+        
+     int[] ans = new int[l1];
+     var st = new Stack<int>(){};
+        
+        
+     for(int i =0;i<l1;i++)
+     {
+         while(st.Count!=0 && arr[i]>arr[st.Peek()])
+         {
+             ans[st.Peek()] = arr[i];
+             st.Pop();
+         }
+         
+         st.Push(i);
+         
+     }
+        
+         while(st.Count!=0)
+         {
+         ans[st.Peek()]=-1;
+         st.Pop();
+         }
+     
+        
+    var list = new List<int>(){};
+    for(int k=0;k<l1/2;k++)
+    {
+        list.Add(ans[k]);
+    }
+    
+        return list.ToArray();
+        //return arr;
+        
+        
+    }
+}

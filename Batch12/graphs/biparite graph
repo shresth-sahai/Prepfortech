@@ -1,0 +1,32 @@
+bool biparite(vector<vector<int>>& graph,int src,
+vector<int> &colors)
+{
+for(int i=0;i<graph.size();i++)
+{
+    if(color[graph[src[i]]]==-1)
+    {
+    color[graph[src[i]]]=!color[src]; 
+    if(!biparite(graph,graph[src][i],color)) return false;
+    else if(color[graph[src[i]]]==colors[src])
+return false;
+    }
+    return  true;
+}
+}
+
+bool solve(vector<vector<int>>& graph) {
+    //DFS for color 
+    vector<int> colors(graph.size(),-1);
+    for(int i=0;i<graph.size();i++)
+    {
+        if(colors[i]==-1)
+        {
+            colors[i]=1;
+            if(!biparite(graph,i,colors)) return false;
+        }
+    }
+    return true;
+}
+
+//biparite-- adj node cannot have same color
+//--> we can try coloring 
