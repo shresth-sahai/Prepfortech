@@ -1,0 +1,24 @@
+public void shortest_distance(int [][] mat)
+{
+int v=mat.lenght();
+int cost[v][v];
+// building the cost mat
+for(i=0;i<v;i++)
+for(j=0;j<v;j++)
+if (mat[i][j]==-1) cost[i][j]=INF;
+else cost[i][j]=mat[i][j];
+
+//cal min cost
+for(int inter=0;inter<v;inter++)
+for(int s=0;s<v;s++)
+for(int d=0;d<v;d++)
+if(mat[s][inter] !=INF || mat[inter][d]!=INF)
+cost[i][j]= min{cost[s][d],cost[s][inter],cost[inter][d]};
+}
+for(i=0;i<v;i++)
+for(j=0;j<v;j++)
+if(cost[i][j]==INF)
+mat[i][j]=-1;
+else
+mat[i][j]=cost[i][j];
+}
