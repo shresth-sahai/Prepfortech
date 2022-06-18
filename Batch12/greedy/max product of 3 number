@@ -1,0 +1,4 @@
+-3 -2 1 1 2 --- nlogn 
+      heap---3 top elemnts --- n log k
+
+      0(n)-----three numbers top and product take and return 
