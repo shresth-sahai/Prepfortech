@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool PredictTheWinner(vector<int>& nums) {
+        
+    }
+};
+
+
+
+
+def helper(sum, nums, s,e):
+
+
+score1= helper(sum-nums[s],nums,s+1,e);
+score2= helper(sum-nums[e],nums,s,e-1);
+
+
+res= max(score 1,score 2)
+
+helper(sum(nums),nums,0,len(nums)-1)*2>=sum(nums)
+    
+    // in each step -- two things
+    -- pick first or last
+    --if i pick the first one the max score is sum of nums- max possible score of other player 
+    nums[1:]
