@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int minimumNumbers(int num, int k) {
+        
+        if(num==0) return 0;
+        for(int i=1;i<=10;i++)
+        {
+            if((i*k)%10 ==num%10  && i*k<=num) return i;
+        }
+        return -1;
+    }
+};
+a1+a2+a3-----an = sum
+sum= n*k + 10*(a1+a2+....+an)
+
+unit digit of numbers starts repeating 
+9*1= 9
+9*11=99
+9*2=18
+9*12=108
+
+    
+ 
