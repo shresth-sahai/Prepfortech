@@ -17,3 +17,21 @@ Node parentv2=find Parent(v2);
 if(parentv1 !=parentv2)
 parent[v2]=v1;
 }
+void union( Node v1 , node v2)
+{
+node parent1=findparent(v1);
+node parent2=findparent(v2);
+
+if(parent1 == parent 2)
+return;
+
+rank1 =ranks[parent1];
+rank2 =ranks[parent2];
+if(rank1 > rank2)
+parent [v2]=parent 1;
+else if(rank2 > rank1)
+parent [v1]=parent v2;
+else {
+parent[v2]=parentv1
+rank[parentv1]++;
+}
