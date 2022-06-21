@@ -1,0 +1,37 @@
+//Standard Union-Find Template
+    class ds{
+      public:
+        vector<int>par;
+        int sz;
+        ds(int n){
+            par.resize(n);
+            for(int i=0;i<n;i++)par[i]=i;
+            this->sz=n;
+        }
+        int find(int u){
+            if(par[u]==u)return u;
+            return par[u]=find(par[u]);
+        }
+        void merge(int u , int v){
+            int g1=find(u);
+            int g2=find(v);
+            par[g1]=g2;
+        }
+    };
+
+    int findCircleNum(vector<vector<int>>& v) {
+        int n=v.size();
+        ds uf(n);
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(v[i][j]==1){
+                    uf.merge(i,j);      //Merge both cities into 1 group
+                }
+            }
+        }
+        unordered_set<int>s;
+        for(int i=0;i<uf.par.size();i++){
+            s.insert(uf.find(uf.par[i]));     //Parent of all nodes insert 
+        }
+        return s.size();    //Then return the size , no. of different components 
+    }
