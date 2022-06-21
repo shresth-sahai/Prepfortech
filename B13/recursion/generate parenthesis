@@ -1,0 +1,34 @@
+2*n
+
+o_ _ _ _ _ _
+1 2 3 4 5 6 
+    
+--- 2 ways--
+    --- when to place opening
+    ----when to place closing 
+    ----open---condition to place o < n
+    ----close ------;;            c< n
+    
+    
+    void helpgen(string ans, int n, int idx, int o,int c)
+    {
+        if(idx==2*n)
+        {
+            store ans;
+            return;
+        }
+        
+        
+        if(o<n)
+        {
+            ans.push_back("(");helpgen(ans,n,++idx,o+1,c)
+            
+        }
+        if(c<o)
+        {
+            ans.push_back(")");helpgen(ans,n,++idx,o,++c)
+            
+        }
+        
+        
+    }

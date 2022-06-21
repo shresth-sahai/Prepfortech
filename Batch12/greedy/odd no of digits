@@ -1,0 +1,16 @@
+int solve(vector<int>& nums) {
+    int c=0;
+    for(auto num:nums)
+    {
+      c+= int(log10(num)+1) & 1;
+    }
+    return c;
+}
+
+//ceil(log10(num))-----no of digits
+2.1--- 2 
+
+ log10(n)+1== give u digits in a positive integer
+
+        log10(100)==2
+

@@ -1,0 +1,14 @@
+For every person options i m having
+–n th —-- single —- 1 *  f(n-1)
+If it get paired —- (n-1) * f(n-2)
+
+Total ways —- 1 *  f(n-1)+ (n-1) * f(n-2)
+f(n)= f(n-1)+n-1*f(n-2)
+
+Int count(int n)
+{
+if(n<=0) return 
+
+
+Return 1 *  count(n-1)+ (n-1) * count(n-2);
+}
