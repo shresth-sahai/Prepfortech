@@ -27,3 +27,14 @@ class Solution:
             n+=1
         return n
 
+ class LLNode:
+#     def __init__(self, val, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def solve(self, node):
+        if node:
+            return 1+self.solve(node.next)
+        return 0
+
+        
