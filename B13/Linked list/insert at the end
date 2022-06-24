@@ -1,0 +1,8 @@
+curr=head;
+
+while(curr.next !=null)
+{
+curr=curr.next;
+}
+curr.next=newnode;
+return head;
