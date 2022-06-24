@@ -1,0 +1,4 @@
+def addbw(head,n1,n2):
+  n1.next=newnode;
+newnode.next=n2
+return head;
