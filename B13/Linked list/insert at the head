@@ -1,0 +1,7 @@
+
+def ll head:
+
+
+newnode.next=head
+head=newnode
+return head;
