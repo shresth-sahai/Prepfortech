@@ -30,7 +30,7 @@ public:
             
             queue.push(q1->left);
               queue.push(q2->left);
-              queue.push(q1->right);
+              queue.push(q2->right);
               queue.push(q1->right);
             
             
