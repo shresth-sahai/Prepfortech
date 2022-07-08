@@ -1,0 +1,18 @@
+  void helper(Node* root, int &c)
+   {
+       if(!root) return;
+       
+      c++;
+      
+       helper(root->left,c);
+       helper(root->right,c);
+       
+   }
+int countLeaves(Node* root)
+{
+  // Your code here
+  int c=0;
+  helper(root,c);
+  return c;
+  
+}
