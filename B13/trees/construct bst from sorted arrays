@@ -1,0 +1,52 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+        def help(left,right):
+            if left>right:
+                return None
+            mid=(left+right)//2
+            node=TreeNode(nums[mid])
+            node.left=help(left,mid-1)
+            node.right=help(mid+1,right)
+            return node
+        return help(0,len(nums)-1)
+        
+        
+        /**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode sortedArrayToBST(int[] nums) {
+        return helper(nums,0,nums.length-1); 
+    }
+    private TreeNode helper(int [] nums,int s,int e)
+    {
+        if(s>e) return null;
+        
+        int m=(s+e)/2;
+        
+        TreeNode root=new TreeNode(nums[m]);
+        
+        root.left=helper(nums,s,m-1);
+         root.right=helper(nums,m+1,e);
+        
+        return root;
+    }
+}
