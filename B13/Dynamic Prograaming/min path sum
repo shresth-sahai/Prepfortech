@@ -1,0 +1,37 @@
+class Solution:
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        m=len(grid)-1
+        n=len(grid[0])-1
+        dp=[[None for j in range(n+2)] for i in range(m+2)]
+        def rec(i,j):
+            if i==m and j==n:
+                return grid[i][j]
+            if i>m or j>n:
+                return math.inf
+            if(dp[i][j]):
+                return dp[i][j]
+            dp[i][j]=min(rec(i+1,j),rec(i,j+1))+grid[i][j]
+            return dp[i][j]
+        return rec(0,0)
+            
+        class Solution {
+public:
+    int minCost(vector<vector<int>> &cost,int m, int n,vector<vector<int>>& memo) { 
+      if (n <0 || m <0) 
+         return INT_MAX; 
+      else if(m==0 && n==0) 
+         return cost[m][n]; 
+      if(memo[m][n]!=-1)
+          return memo[m][n];
+      int r=cost[m][n]+min(minCost(cost,m-1,n,memo),minCost(cost,m,n-1,memo));
+        memo[m][n]=r;
+      return r;
+    } 
+    
+    int minPathSum(vector<vector<int>>& grid) {
+        int m=grid.size(),n=grid[0].size();
+        vector<vector<int>> memo(m,vector<int>(n, -1));
+        return minCost(grid,m-1,n-1,memo);
+    }
+    
+};
