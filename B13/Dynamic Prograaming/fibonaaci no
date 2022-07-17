@@ -1,0 +1,21 @@
+class Solution:
+    def fib(self, n: int) -> int:
+        return self.helper(n,{})
+    def helper(self,n,memo):
+        if n==1:
+            return 1
+        if n==0:
+            return 0
+        
+        currkey=n
+        
+        if currkey in memo:
+            return memo[currkey]
+        
+        a=self.helper(n-1,memo)
+        b=self.helper(n-2,memo)
+        
+        memo[currkey]=a+b
+        return memo[currkey]
+    
+        
