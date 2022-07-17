@@ -1,0 +1,47 @@
+class Solution {
+    public int climbStairs(int n) {
+        return tways(0,n,new Hashmap<Integer,Integer> ());
+    }
+    public int tways(int curr,int tar, Hashmap <Integer,Integer> memo)
+    {
+        if(curr== tar) return 1; 1... base case
+        if(curr>tar) return 0;
+        
+        int currkey=curr; // retrieve thr cuur state
+        
+        if(memo.containsKey(currkey)) return memo[currkey]; // check in the map
+        
+        int onestep=tways(curr+1,n,memo); //do recusrion
+        int twostep=tways(curr+2,n,memo);
+        
+        memo.put(currkey,onestep+twostep); // store ans
+        
+        return memo[currkey];// return
+    }
+}
+
+0 ------> n
+--op1- 0+1--+1/+2
+--op2--0+2 --+1/+2
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        return self.helper(0,n,{})
+    
+    def helper(self,curr,target,memo):
+        if curr==target:
+            return 1
+        if curr>target:
+            return 0
+        currkey=curr
+        
+        if currkey in memo:
+            return memo[currkey]
+        
+        onestep=self.helper(curr+1,target,memo)
+        twostep=self.helper(curr+2,target,memo)
+        
+        memo[currkey]=onestep+twostep
+        return memo[currkey]
+        
+        
