@@ -1,0 +1,26 @@
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        memo = {}
+        a = self.minCost(cost, 0, memo)
+        b = memo[1] #self.minCost(cost, 1, {})
+        
+        return min(a, b)
+    
+    def minCost(self, cost, currentIndex, memo):
+        
+        if currentIndex == len(cost):
+            return 0
+        
+        if currentIndex > len(cost):
+            return 999
+        
+        #currentKey = currentIndex
+        
+        if currentIndex in memo:
+            return memo[currentIndex]
+        
+        oneJump = cost[currentIndex] + self.minCost(cost, currentIndex+1, memo)
+        twoJump = cost[currentIndex] + self.minCost(cost, currentIndex+2, memo)
+        
+        memo[currentIndex] = min(oneJump, twoJump)
+        return min(oneJump, twoJump)
