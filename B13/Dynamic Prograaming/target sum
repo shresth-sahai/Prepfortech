@@ -1,0 +1,48 @@
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        return self.help(nums,target,0,{})
+    def help(self,nums,target,curr,memo):
+        if curr>=len(nums) and target!=0:
+            return 0
+        if curr>=len(nums) and target==0:
+            return 1
+        currkey=str(curr)+""+str(target)
+        
+        if currkey in memo:
+            return memo[currkey]
+        
+        pos=self.help(nums,target-nums[curr],memo)
+        neg=self.help(nums,target+nums[curr],memo)
+        
+        memo[currkey]=pos+neg 
+        return memo[currkey]
+        
+        
+        
+        class Solution {
+    public int findTargetSumWays(int[] nums, int target) {
+        
+        
+        return tways(nums,target,0,new HashMap<String,Integer> ());
+        
+    }
+    public int tways(int [] nums,int target,int curr,HashMap<String,Integer> memo)
+    {
+        if(curr>=nums.length) 
+        {
+            if(target!=0) return 0;
+            else return 1;
+        }
+        String currkey=Integer.toString(curr)+"_"+Integer.toString(target);
+        
+        if(memo.containsKey(currkey)) return memo.get(currkey);
+        
+        int pos=tways(nums,target-nums[curr],curr+1,memo);
+        int neg=tways(nums,target+nums[curr],curr+1,memo);
+        
+        memo.put(currkey,pos+neg);
+        
+        return memo.get(currkey);
+        
+    }
+}
