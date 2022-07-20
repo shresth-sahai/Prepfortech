@@ -1,0 +1,45 @@
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        return self.help(nums,0,{})
+    def help(self,nums,curr,memo):
+        if curr>=len(nums):
+            return 0
+        currkey=curr
+        
+        if currkey in memo:
+            return memo[currkey]
+        
+        rob=nums[curr]+self.help(nums,curr+2,memo)
+        norob=self.help(nums,curr+1,memo)
+        
+        memo[currkey]=max(rob,norob)
+        
+        return memo[currkey]
+        
+        
+        
+        class Solution {
+public:
+    int maxmoney(vector<int>& nums,int curr,unordered_map<int,int> &mp)
+    {
+        if(curr>=nums.size()) return 0;
+        
+         int currkey=curr;
+        
+        if(mp.find(currkey)!=mp.end()) return mp[curr];
+        
+        int yesrob=nums[curr] + maxmoney(nums,curr+2,mp);
+        int dontrob= 0 + maxmoney(nums,curr+1,mp);
+        
+        mp[curr]=max(yesrob,dontrob);
+        
+        return mp[curr];
+        
+        
+    }
+    int rob(vector<int>& nums) {
+        unordered_map<int,int> mp;
+        
+        return maxmoney(nums,0,mp);
+    }
+};
