@@ -1,0 +1,57 @@
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        tsum=sum(nums)
+        if tsum%2==1:
+            return False
+        return self.help(nums,0,tsum//2,{})
+    def help(self,nums,cur,target,memo):
+        if target==0:
+            return True
+        if cur>=len(nums):
+            return False
+        currkey=(cur,target)
+        
+        if currkey in memo:
+            return memo[currkey]
+        
+        inc=False
+        
+        if nums[cur]<=target:
+            inc=self.help(nums,cur+1,target-nums[cur],memo)
+        
+        exc=self.help(nums,cur+1,target,memo)
+        
+        memo[currkey]=inc or exc
+        return memo[currkey]
+        
+        class Solution {
+public:
+    bool solve(vector<int>& nums,int idx,int target,int n, unordered_map<string, bool> &mp){
+        if(target==0) return true;
+        if(idx>=n) return false;
+        string key=to_string(idx)+"-"+to_string(target);
+        if(mp.find(key)!=mp.end())
+            return mp[key];
+        
+        bool consider=false;
+        if(nums[idx]<=target){
+            consider= solve(nums,idx+1,target-nums[idx],n,mp);
+        }
+    if(consider){
+        mp[key]=consider;
+        return true;
+    }
+bool notc=solve(nums,idx+1,target,n,mp);
+        
+mp[key]= consider|| notc;
+        return mp[key];
+        
+    }
+    bool canPartition(vector<int>& nums) {
+        int tsum=0;
+        for(int i=0;i<nums.size();i++) tsum+=nums[i];
+        if(tsum%2==1) return false;
+        unordered_map<string, bool> mp;
+        return solve(nums,0,tsum/2,nums.size(),mp);
+    }
+};
