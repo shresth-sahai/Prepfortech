@@ -1,0 +1,39 @@
+class Solution:
+    def rec(self,dice,target,faces):
+        if dice==0 and target==0:
+            return 1
+        if dice==0 or target==0:
+            return 0
+        ans=0
+        for i in range(1,faces+1):
+            ans+=self.rec(dice-1,target-i,faces)
+        return ans%1000000007
+    
+    def numRollsToTarget(self, n: int, k: int, target: int) -> int:
+        return self.rec(n,target,k)
+       
+       
+       class Solution {
+    public int numRollsToTarget(int n, int k, int target) {
+        return tways(n,k,target,new HashMap<String, Integer> ());
+    }
+    public int tways(int dice,int faces,int target ,HashMap<String, Integer> memo)
+    {
+        if(dice==0 && target !=0) return 0;
+          if(dice==0 && target ==0) return 1;
+        
+        String currkey= dice+"-"+target;
+        if(memo.containsKey(currkey)) return memo[currkey];
+        
+        int ans=0;
+        
+        for(int f=1;f<=faces;f++)
+        {
+            int tempans=tways(dice-1,faces,target-f,memo);
+            ans=(ans%1000000007 +tempans %1000000007);
+            
+        }
+        memo.put(currkey,ans);
+        return memo.get(currkey);
+    }
+}
