@@ -1,0 +1,29 @@
+class Solution {
+public:
+    unordered_map<int,int> cache;
+int bt(vector<int> &nums,int target) 
+    {
+        if(target==0)
+            return 1;
+        if(target<0)
+            return 0;
+        
+    int cur=target;
+    
+       if(cache.find(cur)!=cache.end()) return cache[cur];
+        int res=0;
+        for(int i:nums)
+        {
+            res+=bt(nums,target-i);
+           
+        }
+        return cache[target]=res;
+    }
+    
+    
+    int combinationSum4(vector<int>& nums, int target) {
+    
+        return bt(nums,target);
+        
+    }
+};
