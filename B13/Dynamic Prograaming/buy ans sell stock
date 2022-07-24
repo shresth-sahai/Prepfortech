@@ -28,3 +28,35 @@ public:
         }
     }
 };
+
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        return help(prices,0,1,1,new HashMap<String,Integer>  memo)
+    }
+    public int help(int[] prices,int cur,int canbuy,int transc,HashMap<String,Integer>  memo)
+    {
+        if(curr>=prices.length || transc<=0) return 0;
+        
+        String curkey= cur+"-"+canbuy+"-"+ transc ;
+        
+        if(memo.containsKey(curkey)) return memo[curkey];
+        
+        if(canbuy==1)
+        {
+            int idle=help(prices,cur+1,canbuy,transc,memo);
+            int buy = help(prices,cur+1,0,transc,memo)-prices[cur];
+            
+            memo.put(curkey.Math.max(idle,buy));
+            return memo.get(curkey);
+        }
+        else{
+            int idle=help(prices,cur+1,canbuy,transc,memo);
+            int sell = help(prices,cur+1,0,transc-1,memo)-prices[cur];
+            
+            memo.put(curkey.Math.max(idle,sell));
+            return memo.get(curkey);
+        }
+    }
+};
