@@ -60,3 +60,62 @@ public:
         }
     }
 };
+
+
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        left=0
+        right=1
+        max_profit=0
+        while right<len(prices):
+            currprofit=prices[right]-prices[left]
+            if prices[left]<prices[right]:
+                max_profit=max(currprofit,max_profit)
+            else:
+                left=right
+            right+=1
+        return max_profit 
+        
+        
+        
+        
+        class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        
+        int n=prices.size();
+        int ans=0;
+        for(int i=1;i<n;i++)
+            ans+=max(0,prices[i]-prices[i-1]);
+        
+        return ans;
+    }
+};
+
+
+
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        if(!prices.size) return 0;
+        
+        int buy1;
+        int profit1;
+        int buy2;
+        int profit2;
+        
+        for(int i=0;i<prices.size();i++)
+        {
+            buy1=min(buy1,prices[i]);
+            profit1=max(profit1,prices[i]-buy1);
+            buy2=min(buy2,)
+            profit2=max(profit2,     )
+        }
+        return profit2;
+    }
+};
+
+
+
