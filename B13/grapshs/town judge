@@ -1,0 +1,37 @@
+class Solution:
+    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+        if n==1:
+            return 1
+        indeg=collections.defaultdict(int)
+        outdeg=collections.defaultdict(int)
+        
+        for a,b in trust:
+            outdeg[a]+=1
+            indeg[b]+=1
+        
+        for key,value in indeg.items():
+            if value==n-1 and outdeg[key]==0:
+                return key
+        
+        return -1
+        
+        
+        class Solution {
+public:
+    int findJudge(int n, vector<vector<int>>& trust) {
+        
+        vector<int> indeg(n+1,0),outdeg(n+1,0);
+    for(int i=0;i<trust.size();i++)
+    {
+        int v1=trust[i][0];
+        int v2=trust[i][1];
+        outdeg[v1]++;
+        indeg[v2]++;
+    }
+         for(int i=1;i<=n;i++)
+    {
+       if(outdeg[i]==0 && indeg[i]==n-1) return i;
+    }
+        return -1;
+    }
+};
